@@ -1,0 +1,34 @@
+{
+  "name": "Verilog DevContainer",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "username": "vscode"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mshr-h.VerilogHDL",
+        "zachflower.gitignore",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "mhutchie.git-graph"
+      ]
+    }
+  },
+
+  "postCreateCommand": 
+    "git config --global --add safe.directory /workspaces/${localWorkspaceFolderBasename} && git config --global url.\"https://github.com/\".insteadOf \"ssh://git@github.com/\" && git config --global url.\"https://github.com/\".insteadOf \"git@github.com:\""
+}
